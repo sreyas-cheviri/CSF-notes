@@ -290,9 +290,9 @@ public class Main {
 ```
 
 **Explanation**:  
-Even though the reference variable is of type `Animal`,
+## **Even though the reference variable is of type `Animal`,**
 
- the `sound()` method of `Dog` is called at runtime because the object is actually of type `Dog`.
+##  **the `sound()` method of `Dog` is called at runtime because the object is actually of type `Dog`.**
 
 ---
 
@@ -365,6 +365,8 @@ In the `Vehicle` class, the `startEngine()` method is abstract, and the subclass
 By providing access through getter and setter methods, you can control the access and modification of the internal state.
 
 ---
+
+## data hiding , encapsulation and data abstraction detailed notes in next chapter.
 
 
 
