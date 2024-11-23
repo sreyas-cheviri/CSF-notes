@@ -3,6 +3,17 @@
 
 ### Access Modifiers in Java
 
+-----
+![access modifiers](../assets/Screenshot%202024-11-11%20202450.png)
+----
+
+### interview answer : 
+Access modifiers in Java are keywords that set the accessibility or scope of classes, constructors, methods, and variables. They control where these elements can be accessed from, helping to implement encapsulation and data hiding
+
+
+----
+
+
 1. **Private**: 
    - Accessible only within the class in which it is declared.
    - Not visible to any other class, even within the same package.
