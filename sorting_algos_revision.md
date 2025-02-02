@@ -9,7 +9,7 @@
 
  ```java
  public static void bubblesort(int arr[]){
-    for(int i = 0 ; i < arr.lenth-1; i++){
+    for(int i = 0 ; i < arr.length-1; i++){
         for(int j = 0 ; j < arr.length-i-1; j++){
             if(arr[j]>arr[j+1]){
                 int temp = arr[j];
@@ -147,7 +147,7 @@ public class tUf {
 }
  ```
 
- ### - 3 <u> Quick sort </u>
+ ### - 5 <u> Quick sort </u>
 
  - concept -Builds the sorted array one element at a time by comparing and inserting elements into the correct position.<br>
  - TC - Best/Average: 
@@ -204,3 +204,66 @@ O(logn) (for recursive stack) and wrost is O(n^2)  ///// Auxiliary space is O(1)
 }
 
  ```
+
+
+
+
+### - 5 <u> Bucket Sort </u>
+ - Concept: Divides the array into multiple buckets, distributes elements into these buckets, sorts each bucket, and concatenates the results.
+ - TC:
+Best: O(n + k) (if the input is uniformly distributed)
+Worst: O(n²) (if all elements fall into one bucket)
+- SC: O(n + k) (for additional buckets and auxiliary space)
+- Use Case: Efficient for sorting a large number of elements with values uniformly distributed over a known range.
+```java
+
+import java.util.*;
+
+public class BucketSort {
+
+    public static void bucketSort(float[] arr) {
+        int n = arr.length;
+        if (n <= 0) return;
+
+        // Step 1: Create n empty buckets
+        ArrayList<Float>[] buckets = new ArrayList[n];
+        for (int i = 0; i < n; i++) {
+            buckets[i] = new ArrayList<>();
+        }
+
+        // Step 2: Distribute elements into buckets
+        for (float num : arr) {
+            int index = (int) (num * n); // Determine bucket index
+            buckets[index].add(num);
+        }
+
+        // Step 3: Sort each bucket
+        for (ArrayList<Float> bucket : buckets) {
+            Collections.sort(bucket);
+        }
+
+        // Step 4: Concatenate sorted buckets
+        int index = 0;
+        for (ArrayList<Float> bucket : buckets) {
+            for (float num : bucket) {
+                arr[index++] = num;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        float[] arr = {0.42f, 0.32f, 0.23f, 0.52f, 0.13f};
+        System.out.println("Before sorting:");
+        for (float num : arr) {
+            System.out.print(num + " ");
+        }
+
+        bucketSort(arr);
+
+        System.out.println("\nAfter sorting:");
+        for (float num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+```
